@@ -1,7 +1,7 @@
 import React from "react";
 
 const MovieCard = props => {
-  const { title, director, metascore, stars } = props;
+  const { title, director, metascore, stars, saveMovie } = props;
   return (
     <div className="save-wrapper">
       <div className="movie-card">
@@ -15,12 +15,14 @@ const MovieCard = props => {
         <h3>Actors</h3>
 
         {stars.map(star => (
-          <div key={stars} className="movie-star">
+          <div key={star} className="movie-star">
             {star}
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <div onClick={() => saveMovie()} className="save-button">
+        Save
+      </div>
     </div>
   );
 };

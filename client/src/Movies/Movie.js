@@ -3,9 +3,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 
 const Movie = props => {
-  console.log("Props from App -> Movie", props);
   const movieMatch = props.match;
-  console.log("movieMatch: ", movieMatch);
   const [movie, setMovie] = useState();
 
   useEffect(() => {

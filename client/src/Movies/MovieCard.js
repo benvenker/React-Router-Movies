@@ -10,7 +10,6 @@ const MovieCard = props => {
     movieMatch,
     match
   } = props;
-  console.log("MovieCard props", props);
   return (
     <div className="save-wrapper">
       <div className="movie-card">

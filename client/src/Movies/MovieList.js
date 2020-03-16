@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
 const MovieList = props => {
+  console.log("MovieList props: ", props);
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     const getMovies = () => {
@@ -22,9 +23,9 @@ const MovieList = props => {
 
   return (
     <div className="movie-list">
-      {movies.map(movie => (
+      {movies.map((movie, i) => (
         <MovieDetails
-          key={movie.id}
+          key={i}
           movie={movie}
           addToSavedList={props.addToSavedList}
         />
@@ -34,7 +35,11 @@ const MovieList = props => {
 };
 
 function MovieDetails({ movie }) {
-  const { title, director, metascore, stars, id } = movie;
+  // const saveMovie = () => {
+  //   const addToSavedList = addToSavedList;
+  //   addToSavedList(movie);
+  // };
+  const { title, director, metascore, stars, id, saveMovie, match } = movie;
   return (
     <Link to={`/movies/${id}`}>
       <MovieCard
@@ -43,7 +48,8 @@ function MovieDetails({ movie }) {
         metascore={metascore}
         stars={stars}
         id={id}
-        // saveMovies={saveMovies}
+        saveMovie={saveMovie}
+        match={match}
       />
     </Link>
   );

@@ -6,6 +6,7 @@ const SavedList = props => (
     <h3>Saved Movies:</h3>
     {props.list.map(movie => (
       <NavLink
+        key={movie.id}
         to={`/movies/${movie.id}`}
         className="saved-movie"
         activeClassName="saved-active"

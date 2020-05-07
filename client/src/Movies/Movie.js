@@ -34,6 +34,15 @@ const Movie = (props) => {
   if (!movie) {
     return (
       <Loader
+        styles={{
+          display: "block",
+          top: "50%",
+          left: "50%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          width: "50%",
+          padding: 10,
+        }}
         type="Puff"
         color="#00BFFF"
         height={100}

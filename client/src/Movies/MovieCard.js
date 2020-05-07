@@ -1,6 +1,7 @@
 import React from "react";
+import "./MovieCard.css";
 
-const MovieCard = props => {
+const MovieCard = (props) => {
   const {
     title,
     director,
@@ -8,7 +9,7 @@ const MovieCard = props => {
     stars,
     saveMovie,
     movieMatch,
-    match
+    match,
   } = props;
   return (
     <div className="save-wrapper">
@@ -22,7 +23,7 @@ const MovieCard = props => {
         </div>
         <h3>Actors</h3>
 
-        {stars.map(star => (
+        {stars.map((star) => (
           <div key={star} className="movie-star">
             {star}
           </div>

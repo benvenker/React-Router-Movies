@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./MovieCard.css";
+import { useParams } from "react-router-dom";
 
 const MovieCard = (props) => {
+  const params = useParams();
+
+  useEffect(() => {
+    console.log(params);
+  }, []);
+
   const {
     title,
     director,
@@ -29,7 +36,7 @@ const MovieCard = (props) => {
           </div>
         ))}
       </div>
-      {match !== undefined ? (
+      {params.id >= 0 ? (
         <div onClick={saveMovie} className="save-button">
           Save
         </div>

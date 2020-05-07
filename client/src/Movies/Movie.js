@@ -5,7 +5,6 @@ import MovieCard from "./MovieCard";
 import Loader from "react-loader-spinner";
 
 const Movie = (props) => {
-  const [isLoading, setIsLoading] = useState(true);
   const movieMatch = props.match;
   const [movie, setMovie] = useState();
   const params = useParams();
@@ -18,12 +17,11 @@ const Movie = (props) => {
       .get(`http://localhost:5000/api/movies/${params.id}`)
       .then((response) => {
         setMovie(response.data);
-        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [movie]);
+  }, [movie, params]);
 
   // Uncomment this only when you have moved on to the stretch goals
   const saveMovie = () => {

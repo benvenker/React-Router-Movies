@@ -5,7 +5,6 @@ import MovieCard from "./MovieCard";
 import Loader from "react-loader-spinner";
 
 const Movie = (props) => {
-  const movieMatch = props.match;
   const [movie, setMovie] = useState();
   const params = useParams();
 
@@ -58,6 +57,7 @@ const Movie = (props) => {
   }
 
   const { title, director, metascore, stars } = movie;
+  const { deleteSavedMovie } = props;
   return (
     <div>
       {movie ? (
@@ -67,7 +67,7 @@ const Movie = (props) => {
           metascore={metascore}
           stars={stars}
           saveMovie={saveMovie}
-          match={movieMatch}
+          deleteSavedMovie={deleteSavedMovie}
         />
       ) : (
         <Loader

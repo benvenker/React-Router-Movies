@@ -5,19 +5,7 @@ import { useParams } from "react-router-dom";
 const MovieCard = (props) => {
   const params = useParams();
 
-  useEffect(() => {
-    console.log(params);
-  }, []);
-
-  const {
-    title,
-    director,
-    metascore,
-    stars,
-    saveMovie,
-    movieMatch,
-    match,
-  } = props;
+  const { title, director, metascore, stars, saveMovie } = props;
   return (
     <div className="save-wrapper">
       <div className="movie-card">

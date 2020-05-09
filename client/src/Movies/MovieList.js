@@ -31,7 +31,6 @@ function MovieDetails({ movie }) {
         stars={stars}
         id={id}
         saveMovie={saveMovie}
-        match={match}
       />
     </Link>
   );

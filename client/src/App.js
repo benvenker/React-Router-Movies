@@ -8,19 +8,16 @@ import Movie from "./Movies/Movie";
 const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    const getMovies = () => {
-      axios
-        .get("http://localhost:5000/api/movies")
-        .then((response) => {
-          setMovies(response.data);
-        })
-        .catch((error) => {
-          console.error("Server Error", error);
-        });
-    };
 
-    getMovies();
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/movies")
+      .then((response) => {
+        setMovies(response.data);
+      })
+      .catch((error) => {
+        console.error("Server Error", error);
+      });
   }, []);
 
   const addToSavedList = (movie) => {

@@ -11,9 +11,11 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/movies")
+      .get(
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=64882f956a7fd9b8a23485266c2280b6&language=en-US&page=1"
+      )
       .then((response) => {
-        setMovies(response.data);
+        setMovies(response.data.results);
       })
       .catch((error) => {
         console.error("Server Error", error);

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
 const MovieList = (props) => {
+  console.log("movies: ", props.movies);
   return (
     <div className="movie-list">
       {props.movies.map((movie, i) => (
@@ -21,14 +22,14 @@ function MovieDetails({ movie }) {
   //   const addToSavedList = addToSavedList;
   //   addToSavedList(movie);
   // };
-  const { title, director, metascore, stars, id, saveMovie } = movie;
+  const { title, director, popularity, overview, id, saveMovie } = movie;
   return (
     <Link to={`/movies/${id}`}>
       <MovieCard
         title={title}
         director={director}
-        metascore={metascore}
-        stars={stars}
+        popularity={popularity}
+        overview={overview}
         id={id}
         saveMovie={saveMovie}
       />

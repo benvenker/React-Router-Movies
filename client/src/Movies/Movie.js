@@ -13,7 +13,10 @@ const Movie = (props) => {
     // You will NEED to add a dependency array to this effect hook
 
     axios
-      .get(`http://localhost:5000/api/movies/${params.id}`)
+      .get(
+        `https://api.themoviedb.org/3/movie/${params.id}?api_key=64882f956a7fd9b8a23485266c2280b6&language=en-US
+`
+      )
       .then((response) => {
         setMovie(response.data);
       })
@@ -39,13 +42,14 @@ const Movie = (props) => {
       >
         <Loader
           styles={{
-            display: "block",
+            display: "inline-block",
             top: "50%",
             left: "50%",
             marginLeft: "auto",
             marginRight: "auto",
             width: "50%",
             padding: 10,
+            position: "absolute",
           }}
           type="Puff"
           color="#00BFFF"
@@ -57,7 +61,7 @@ const Movie = (props) => {
     );
   }
 
-  const { title, director, metascore, stars } = movie;
+  const { title, director, popularity, overview } = movie;
   const { deleteSavedMovie } = props;
   return (
     <div>
@@ -65,8 +69,8 @@ const Movie = (props) => {
         <MovieCard
           title={title}
           director={director}
-          metascore={metascore}
-          stars={stars}
+          popularity={popularity}
+          overview={overview}
           saveMovie={saveMovie}
           deleteSavedMovie={deleteSavedMovie}
         />

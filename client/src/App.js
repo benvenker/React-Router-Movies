@@ -24,7 +24,10 @@ const App = () => {
   }, []);
 
   const addToSavedList = (movie) => {
-    setSavedList([...savedList, movie]);
+    const ids = savedList.map((el) => el.id);
+    if (!ids.includes(movie.id)) {
+      setSavedList([...savedList, movie]);
+    }
   };
 
   return (

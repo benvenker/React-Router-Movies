@@ -7,7 +7,7 @@ const SavedList = (props) => (
     {props.list.map((movie) => (
       <div>
         <span
-          class="delete-button"
+          className="delete-button"
           onClick={() => props.deleteSavedMovie(movie.id)}
         >
           X

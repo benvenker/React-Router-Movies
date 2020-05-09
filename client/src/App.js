@@ -30,9 +30,13 @@ const App = () => {
     }
   };
 
+  const deleteSavedMovie = (id) => {
+    return setSavedList(savedList.filter((movie) => movie.id !== id));
+  };
+
   return (
     <div>
-      <SavedList list={savedList} />
+      <SavedList list={savedList} deleteSavedMovie={deleteSavedMovie} />
       <Route exact path="/">
         <MovieList addToSavedList={addToSavedList} movies={movies} />
       </Route>

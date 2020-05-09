@@ -22,6 +22,21 @@ const App = () => {
       });
   }, []);
 
+  const searchMovies = (e) => {
+    console.log(e.target.value);
+    const query = e.target.value;
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=64882f956a7fd9b8a23485266c2280b6&language=en-US&query=${query}&page=1&include_adult=false`
+      )
+      .then((response) => {
+        setMovies(response.data.results);
+      })
+      .catch((error) => {
+        console.log("Server errror: ", error);
+      });
+  };
+
   const addToSavedList = (movie) => {
     const ids = savedList.map((el) => el.id);
     if (!ids.includes(movie.id)) {
@@ -37,6 +52,11 @@ const App = () => {
     <div>
       <SavedList list={savedList} deleteSavedMovie={deleteSavedMovie} />
       <Route exact path="/">
+        <input
+          type="search"
+          placeholder="Search movies..."
+          onChange={searchMovies}
+        />
         <MovieList addToSavedList={addToSavedList} movies={movies} />
       </Route>
       <Route path="/movies/:id">

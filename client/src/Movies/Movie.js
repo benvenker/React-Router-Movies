@@ -33,6 +33,7 @@ const Movie = (props) => {
       <div
         styles={{
           display: "flex",
+          flexDirection: "column",
           textAlign: "center",
         }}
       >

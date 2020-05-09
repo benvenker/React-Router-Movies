@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./MovieCard.css";
 import { useParams } from "react-router-dom";
 

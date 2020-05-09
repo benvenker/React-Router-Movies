@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
@@ -21,7 +21,7 @@ function MovieDetails({ movie }) {
   //   const addToSavedList = addToSavedList;
   //   addToSavedList(movie);
   // };
-  const { title, director, metascore, stars, id, saveMovie, match } = movie;
+  const { title, director, metascore, stars, id, saveMovie } = movie;
   return (
     <Link to={`/movies/${id}`}>
       <MovieCard
